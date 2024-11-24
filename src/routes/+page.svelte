@@ -1,5 +1,6 @@
 <script lang="ts">
     import type { PageData } from "./$types";
+    import { page } from "$app/stores";
     import type { IndexMonster } from "./+page";
     import { generations } from "./generations";
     export let data: PageData;
@@ -10,10 +11,8 @@
     monsterId = monster.id;
     };
 </script>
-<h1>{monsterId}</h1>
-<h2>{monster?.name}</h2>
-
-
+<h1 class="text-slate-700 font-bold text-3xl first-letter:uppercase">{monster?.name}</h1>
+<span class="text-slate-700 font-bold text-xl first-letter:uppercase">{monsterId}</span>
 
 <div id="generations-container" class="flex flex-row flex-wrap w-full justify-center">
     {#each generations as generation (generation.id)}
