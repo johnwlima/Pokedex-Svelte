@@ -7,6 +7,7 @@ type ApiMonster = {
 export type IndexMonster = ApiMonster & {
     id: string
     url: string
+    image: string
 }
 
 export const load = (async ({ fetch }) => {
