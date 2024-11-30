@@ -25,6 +25,7 @@
   <Monster
     monster={monster}
     updateSearchParams={updateSearchParams}
+    isInteractive={false}
   />
 {/if}
 {#if monster2}
