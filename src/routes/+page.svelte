@@ -64,6 +64,7 @@
 	{/each}
 </div>
 
+<!-- TODO Add prevent Default to the submit -->
 <form onsubmit={submitSearch} class="m-4 flex w-full items-center justify-center gap-2">
 	<input
 		type="text"
