@@ -1,5 +1,4 @@
-<script lang="ts">
-	import { onMount } from 'svelte';
+import { onMount } from 'svelte';
 	let time: string;
   
 	function updateTime() {
@@ -12,13 +11,3 @@
 	  const interval = setInterval(updateTime, 1000);
 	  return () => clearInterval(interval);
 	});
-  </script>
-  
-  <div 
-	  class="text-slate-50 font-medium bg-slate-800 p-2 h-10 rounded-lg text-md tracking-widest flex items-center justify-center">
-	  {time}
-  </div>
-  
-  <style>
-  </style>
-  

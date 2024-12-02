@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Timer from "./Timer.svelte";
+	import City from "./City.svelte";
 
 </script>
 
@@ -17,6 +18,7 @@ class="p-6 mb-4 w-full bg-slate-900 flex items-center content-center justify-aro
             <span class="text-lg font-bold text-slate-50">Pokedex</span>
         </a>
         <Timer/>
+        <City/>
     </div>
 
     
