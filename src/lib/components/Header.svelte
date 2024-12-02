@@ -20,16 +20,11 @@ class="p-6 mb-4 w-full bg-slate-900 flex items-center content-center justify-aro
         <Timer/>
         <City/>
     </div>
-
-    
-
     <nav class="flex items-center justify-start gap-4">
        {@render link("Home","/")}
        {@render link("My Pokemons", "/my-monsters")}
+       {@render link("About", "/about")}
     </nav>
-
-    
-
 </div>
 
 <style>
