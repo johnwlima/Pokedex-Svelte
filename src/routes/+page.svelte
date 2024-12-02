@@ -21,7 +21,7 @@
 	$: monsterId2 = $page.url.searchParams.get('monsterId2') || '';
 	$: monster2 = data.monsters.find((monster) => monster.id === monsterId2);
 
-    $: selectedGenerationId = $page.url.searchParams.get('generation_id' || '')
+	$: selectedGenerationId = $page.url.searchParams.get('generation_id' || '');
 
 	const updateSearchParams = (key: string, value: string) => {
 		const searchParams = new URLSearchParams($page.url.searchParams);
@@ -34,30 +34,25 @@
 	};
 </script>
 
-{#if monster}
-	<Monster {monster} {updateSearchParams} isInteractive={false} />
-{/if}
-{#if monster2}
-	<Monster monster={monster2} {updateSearchParams} />
-{/if}
-
 <div id="generations-container" class="flex w-full flex-row flex-wrap justify-center">
-    <button class="m-4 rounded-lg border border-slate-100 bg-slate-600 px-3 py-1 font-bold text-slate-50 hover:bg-slate-700 active:bg-slate-900"
-    class:is-active = { selectedGenerationId === 'all'}
-    onclick={() => {
-        updateSearchParams('generation_id', 'all'
-      )}}
-    >
-        All
-    </button>
+	<button
+		class="m-4 rounded-lg border border-slate-100 bg-slate-600 px-3 py-1 font-bold text-slate-50 hover:bg-slate-700 active:bg-slate-900"
+		class:is-active={selectedGenerationId === 'all'}
+		onclick={() => {
+			updateSearchParams('generation_id', 'all');
+		}}
+	>
+		All
+	</button>
 
 	{#each generations as generation (generation.id)}
-		<button onclick={() => {
-              updateSearchParams('generation_id', generation.id.toString()
-            )}}
+		<button
+			onclick={() => {
+				updateSearchParams('generation_id', generation.id.toString());
+			}}
 			id="generation-button"
 			class="m-4 rounded-lg border border-slate-100 bg-slate-600 px-3 py-1 font-bold text-slate-50 hover:bg-slate-700 active:bg-slate-900"
-            class:is-active = { selectedGenerationId === generation.id.toString()}
+			class:is-active={selectedGenerationId === generation.id.toString()}
 		>
 			{generation.main_region}
 		</button>
@@ -80,20 +75,19 @@
 	/>
 </form>
 
-<div
-	id="pokemon-container"
+<div id="pokemon-container"
 	class="w-creen flex basis-24 flex-row flex-wrap items-start justify-start"
 >
 	{#each selectedMonsters as monster (monster.id)}
-		<Monster {monster} {updateSearchParams} isInteractive={true} />
+		<Monster {monster} />
 	{/each}
 </div>
 
 <style>
-    .is-active {
-        background-color: hsl(222, 47%, 11%);
-    }
-    .is-active:hover {
-        background-color: hsl(222, 50%, 27%);
-    }
+	.is-active {
+		background-color: hsl(222, 47%, 11%);
+	}
+	.is-active:hover {
+		background-color: hsl(222, 50%, 27%);
+	}
 </style>
