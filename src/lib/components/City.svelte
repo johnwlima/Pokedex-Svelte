@@ -1,7 +1,7 @@
 <script>
     import { onMount } from 'svelte';
   
-    let city = 'Desconhecida';
+    let city = '';
   
     function getCityName(latitude, longitude) {
       const apiKey = 'SUA_API_KEY_AQUI'; // Substitua pela sua chave de API
@@ -34,10 +34,14 @@
       getLocation();
     });
   </script>
+
+  {#if city !== ''}
+    <div class="text-slate-50 font-bold bg-slate-800 p-2 rounded-lg text-lg">
+        {city}
+    </div>
+  {/if} 
   
-  <div class="text-slate-50 font-bold bg-slate-800 p-2 rounded-lg text-lg">
-    {city}
-  </div>
+ 
   
   <style>
   </style>
